@@ -11,17 +11,27 @@ import managementRoutes from "./routes/management.js";
 import generalRoutes from "./routes/general.js";
 
 dotenv.config();
-const app=express();
+const app = express();
 
 app.use(express.json);
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(helmet());
-app.use(helmet.crossOriginResourcePolicy({policy:"cross-origin"}));
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(cors());
 
-app.use("/client",clientRoutes);
-app.use("/sales",salesRoutes);
-app.use("/management",managementRoutes);
-app.use("/general",generalRoutes);
+app.use("/client", clientRoutes);
+app.use("/sales", salesRoutes);
+app.use("/management", managementRoutes);
+app.use("/general", generalRoutes);
+
+const PORT = process.env.PORT || 9000;
+// console.log('MongoDB URI:', process.env.MONGO_URL);
+// console.log('Server Port:', process.env.PORT);
+mongoose
+  .connect(process.env.MONGO_URL)
+  .then(() => {
+    app.listen(PORT, () => console.log(`Listening on PORT : ${PORT}`));
+  })
+  .catch((error) => console.log(`${error} Not Connected`));
