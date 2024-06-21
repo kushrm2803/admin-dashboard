@@ -37,8 +37,7 @@ export const tokensDark = {
     600: "#cc0000",
     700: "#990000",
     800: "#660000",
-    900: "#330000"
-
+    900: "#330000",
   },
 };
 
@@ -66,46 +65,46 @@ export const themeSettings = (mode) => {
       mode: mode,
       ...(mode === "dark"
         ? {
-          // palette values for dark mode
-          primary: {
-            ...tokensDark.primary,
-            main: tokensDark.primary[400],
-            light: tokensDark.primary[400],
-          },
-          secondary: {
-            ...tokensDark.secondary,
-            main: tokensDark.secondary[300],
-          },
-          neutral: {
-            ...tokensDark.grey,
-            main: tokensDark.grey[500],
-          },
-          background: {
-            default: tokensDark.primary[600],
-            alt: tokensDark.primary[500],
-          },
-        }
+            // palette values for dark mode
+            primary: {
+              ...tokensDark.primary,
+              main: tokensDark.primary[400],
+              light: tokensDark.primary[400],
+            },
+            secondary: {
+              ...tokensDark.secondary,
+              main: tokensDark.secondary[300],
+            },
+            neutral: {
+              ...tokensDark.grey,
+              main: tokensDark.grey[500],
+            },
+            background: {
+              default: tokensDark.primary[600],
+              alt: tokensDark.primary[500],
+            },
+          }
         : {
-          // palette values for light mode
-          primary: {
-            ...tokensLight.primary,
-            main: tokensDark.grey[50],
-            light: tokensDark.grey[100],
-          },
-          secondary: {
-            ...tokensLight.secondary,
-            main: tokensDark.secondary[600],
-            light: tokensDark.secondary[700],
-          },
-          neutral: {
-            ...tokensLight.grey,
-            main: tokensDark.grey[500],
-          },
-          background: {
-            default: tokensDark.grey[0],
-            alt: tokensDark.grey[50],
-          },
-        }),
+            // palette values for light mode
+            primary: {
+              ...tokensLight.primary,
+              main: tokensDark.grey[50],
+              light: tokensDark.grey[100],
+            },
+            secondary: {
+              ...tokensLight.secondary,
+              main: tokensDark.secondary[600],
+              light: tokensDark.secondary[700],
+            },
+            neutral: {
+              ...tokensLight.grey,
+              main: tokensDark.grey[500],
+            },
+            background: {
+              default: tokensDark.grey[0],
+              alt: tokensDark.grey[50],
+            },
+          }),
     },
     typography: {
       fontFamily: ["Mukta", "sans-serif"].join(","),
