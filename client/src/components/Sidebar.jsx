@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Divider,
@@ -28,68 +28,25 @@ import {
   TrendingUpOutlined,
   PieChartOutlined,
 } from "@mui/icons-material";
-import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import FlexBetween from "./FlexBetween";
 import profileImage from "assets/profile.jpg";
 
 const navItems = [
-  {
-    text: "Dashboard",
-    icon: <HomeOutlined />,
-  },
-  {
-    text: "Client Facing",
-    icon: null,
-  },
-  {
-    text: "Products",
-    icon: <ShoppingCartOutlined />,
-  },
-  {
-    text: "Customers",
-    icon: <Groups2Outlined />,
-  },
-  {
-    text: "Transactions",
-    icon: <ReceiptLongOutlined />,
-  },
-  {
-    text: "Geography",
-    icon: <PublicOutlined />,
-  },
-  {
-    text: "Sales",
-    icon: null,
-  },
-  {
-    text: "Overview",
-    icon: <PointOfSaleOutlined />,
-  },
-  {
-    text: "Daily",
-    icon: <TodayOutlined />,
-  },
-  {
-    text: "Monthly",
-    icon: <CalendarMonthOutlined />,
-  },
-  {
-    text: "Breakdown",
-    icon: <PieChartOutlined />,
-  },
-  {
-    text: "Management",
-    icon: null,
-  },
-  {
-    text: "Admin",
-    icon: <AdminPanelSettingsOutlined />,
-  },
-  {
-    text: "Performance",
-    icon: <TrendingUpOutlined />,
-  },
+  { text: "Dashboard", icon: <HomeOutlined /> },
+  { text: "Client Facing", icon: null },
+  { text: "Products", icon: <ShoppingCartOutlined /> },
+  { text: "Customers", icon: <Groups2Outlined /> },
+  { text: "Transactions", icon: <ReceiptLongOutlined /> },
+  { text: "Geography", icon: <PublicOutlined /> },
+  { text: "Sales", icon: null },
+  { text: "Overview", icon: <PointOfSaleOutlined /> },
+  { text: "Daily", icon: <TodayOutlined /> },
+  { text: "Monthly", icon: <CalendarMonthOutlined /> },
+  { text: "Breakdown", icon: <PieChartOutlined /> },
+  { text: "Management", icon: null },
+  { text: "Admin", icon: <AdminPanelSettingsOutlined /> },
+  { text: "Performance", icon: <TrendingUpOutlined /> },
 ];
 
 const Sidebar = ({
@@ -107,6 +64,7 @@ const Sidebar = ({
   useEffect(() => {
     setActive(pathname.substring(1));
   }, [pathname]);
+
   return (
     <Box component="nav">
       {isSidebarOpen && (
@@ -123,6 +81,9 @@ const Sidebar = ({
               boxSizing: "border-box",
               borderWidth: isNonMobile ? 0 : "2px",
               width: drawerWidth,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
             },
           }}
         >
@@ -190,9 +151,9 @@ const Sidebar = ({
               })}
             </List>
           </Box>
-          <Box position="absolute" bottom="2rem">
+          <Box>
             <Divider />
-            <FlexBetween textTransform="non" gap="1rem" m="1.5rem 2rem 0 3rem">
+            <FlexBetween textTransform="non" gap="1rem" m="1.5rem 2rem 1.5rem 3rem">
               <Box
                 component="img"
                 alt="profile"
@@ -206,17 +167,13 @@ const Sidebar = ({
                 <Typography
                   fontWeight="bold"
                   fontSize="0.9rem"
-                  sx={{
-                    color: theme.palette.secondary[100],
-                  }}
+                  sx={{ color: theme.palette.secondary[100] }}
                 >
                   {user.name}
                 </Typography>
                 <Typography
                   fontSize="0.8rem"
-                  sx={{
-                    color: theme.palette.secondary[200],
-                  }}
+                  sx={{ color: theme.palette.secondary[200] }}
                 >
                   {user.occupation}
                 </Typography>

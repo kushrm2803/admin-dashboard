@@ -9,6 +9,8 @@ import clientRoutes from "./routes/client.js";
 import salesRoutes from "./routes/sales.js";
 import managementRoutes from "./routes/management.js";
 import generalRoutes from "./routes/general.js";
+import User from "./models/User.js";
+import { dataUser } from "./data/index.js";
 
 dotenv.config();
 const app = express();
@@ -30,8 +32,17 @@ const PORT = process.env.PORT || 9000;
 // console.log('MongoDB URI:', process.env.MONGO_URL);
 // console.log('Server Port:', process.env.PORT);
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     app.listen(PORT, () => console.log(`Listening on PORT : ${PORT}`));
+    // Only first time to inject data
+    // User.insertMany(dataUser);
   })
   .catch((error) => console.log(`${error} Not Connected`));
+
+app.get("/", (req, res) => {
+  res.send("API is running...");
+});
