@@ -15,7 +15,7 @@ import { dataUser } from "./data/index.js";
 dotenv.config();
 const app = express();
 
-app.use(express.json);
+app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(helmet());
@@ -32,10 +32,7 @@ const PORT = process.env.PORT || 9000;
 // console.log('MongoDB URI:', process.env.MONGO_URL);
 // console.log('Server Port:', process.env.PORT);
 mongoose
-  .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGO_URL, {})
   .then(() => {
     app.listen(PORT, () => console.log(`Listening on PORT : ${PORT}`));
     // Only first time to inject data
