@@ -10,7 +10,9 @@ import salesRoutes from "./routes/sales.js";
 import managementRoutes from "./routes/management.js";
 import generalRoutes from "./routes/general.js";
 import User from "./models/User.js";
-import { dataUser } from "./data/index.js";
+import Product from "./models/Product.js";
+import ProductStat from "./models/ProductStat.js";
+import { dataUser, dataProduct,dataProductStat } from "./data/index.js";
 
 dotenv.config();
 const app = express();
@@ -36,6 +38,8 @@ mongoose
   .then(() => {
     app.listen(PORT, () => console.log(`Listening on PORT : ${PORT}`));
     // Only first time to inject data
+    //Product.insertMany(dataProduct);
+    //ProductStat.insertMany(dataProductStat);
     // User.insertMany(dataUser);
   })
   .catch((error) => console.log(`${error} Not Connected`));
