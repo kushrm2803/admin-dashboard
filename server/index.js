@@ -9,10 +9,18 @@ import clientRoutes from "./routes/client.js";
 import salesRoutes from "./routes/sales.js";
 import managementRoutes from "./routes/management.js";
 import generalRoutes from "./routes/general.js";
+
+//for data models
 import User from "./models/User.js";
 import Product from "./models/Product.js";
 import ProductStat from "./models/ProductStat.js";
-import { dataUser, dataProduct,dataProductStat } from "./data/index.js";
+import Transaction from "./models/Transaction.js";
+import {
+  dataUser,
+  dataProduct,
+  dataProductStat,
+  dataTransaction,
+} from "./data/index.js";
 
 dotenv.config();
 const app = express();
@@ -37,13 +45,12 @@ mongoose
   .connect(process.env.MONGO_URL, {})
   .then(() => {
     app.listen(PORT, () => console.log(`Listening on PORT : ${PORT}`));
+
     // Only first time to inject data
-    //Product.insertMany(dataProduct);
-    //ProductStat.insertMany(dataProductStat);
+
+    // Product.insertMany(dataProduct);
+    // ProductStat.insertMany(dataProductStat);
+    // Transaction.insertMany(dataTransaction);
     // User.insertMany(dataUser);
   })
   .catch((error) => console.log(`${error} Not Connected`));
-
-app.get("/", (req, res) => {
-  res.send("API is running...");
-});
