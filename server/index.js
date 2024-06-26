@@ -21,6 +21,7 @@ import {
   dataProduct,
   dataProductStat,
   dataTransaction,
+  dataOverallStat,
 } from "./data/index.js";
 
 dotenv.config();
@@ -48,11 +49,10 @@ mongoose
     app.listen(PORT, () => console.log(`Listening on PORT : ${PORT}`));
 
     // Only first time to inject data
-    //OverallStat.insertMany(dataOverallStat);    
+    // OverallStat.insertMany(dataOverallStat);
     // Product.insertMany(dataProduct);
     // ProductStat.insertMany(dataProductStat);
     // Transaction.insertMany(dataTransaction);
     // User.insertMany(dataUser);
-
   })
   .catch((error) => console.log(`${error} Not Connected`));

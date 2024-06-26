@@ -1,28 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap");
 
 html,
 body,
 #root,
-.app{
-    height: 100%;
-    width: 100%;
-    font-family: "Mukta", sans-serif;
+.app {
+  height: 100%;
+  width: 100%;
+  font-family: "Mukta", sans-serif;
 }
+
+:root {
+  --scrollbar-track: #d3d3d3; /* Light mode track color */
+  --scrollbar-thumb: #7a7a7a; /* Light mode thumb color */
+}
+
+[data-theme="dark"] {
+  --scrollbar-track: #191f45; /* Dark mode track color */
+  --scrollbar-thumb: #7a7f9d; /* Dark mode thumb color */
+}
+
+[data-theme="light"] {
+  --scrollbar-track: #d3d3d3; /* Light mode track color */
+  --scrollbar-thumb: #7a7a7a; /* Light mode thumb color */
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
-  background: #7a7f9d;
+  background: var(--scrollbar-track);
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #21295c;
+  background: var(--scrollbar-thumb);
 }
 
-/* Handle on Hover */
-::-webkit-scrollbar-track:hover {
-  background: #21295c;
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb);
 }
