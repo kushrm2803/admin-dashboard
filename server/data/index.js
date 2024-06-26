@@ -1806,7 +1806,7 @@ export const dataAffiliateStat = [
     },
   ];
   
-  export const dataOverallStat = [
+export const dataOverallStat = [
     {
       totalCustomers: 5251,
       yearlySalesTotal: 65152,
@@ -2266,7 +2266,7 @@ export const dataAffiliateStat = [
     },
   ];
   
-  export const dataProduct = [
+export const dataProduct = [
     {
       _id: "63701d24f03239c72c00018e",
       name: "Port Beckley",
@@ -2539,7 +2539,7 @@ export const dataAffiliateStat = [
     },
   ];
   
-  export const dataProductStat = [
+export const dataProductStat = [
     {
       _id: "6371259df03239e680000035",
       productId: "63701d24f03239c72c00018e",
@@ -12802,7 +12802,7 @@ export const dataAffiliateStat = [
     },
   ];
   
-  export const dataTransaction = [
+export const dataTransaction = [
     {
       _id: "63701d74f03239c72c000192",
       userId: "63701cc1f032390a34000319",
@@ -17306,7 +17306,7 @@ export const dataAffiliateStat = [
     },
   ];
   
-  export const dataUser = [
+export const dataUser = [
     {
       _id: "63701cc1f03239c72c00017f",
       name: "Konstantine",
