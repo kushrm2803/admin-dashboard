@@ -5,7 +5,6 @@ import { ResponsiveLine } from "@nivo/line";
 import { useGetSalesQuery } from "state/api";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import "react-datepicker/dist/react-datepicker-cssmodules.css";
 
 const Daily = () => {
   const [startDate, setStartDate] = useState(new Date("2021-02-01"));
@@ -46,10 +45,11 @@ const Daily = () => {
 
     const formattedData = [totalSalesLine, totalUnitsLine];
     return [formattedData];
-  }, [data, startDate, endDate]);
+  }, [data, startDate, endDate]); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
-    <Box m="1.5rem 2rem">
-      <Header title="DAILY SALES" subtitle="Chart of Daily Sales" />
+    <Box m="1.5rem 2.5rem">
+      <Header title="DAILY SALES" subtitle="Chart of daily sales" />
       <Box height="75vh">
         <Box display="flex" justifyContent="flex-end">
           <Box>
@@ -65,12 +65,14 @@ const Daily = () => {
             <DatePicker
               selected={endDate}
               onChange={(date) => setEndDate(date)}
-              selectsStart
+              selectsEnd
               startDate={startDate}
-              endDate={startDate}
+              endDate={endDate}
+              minDate={startDate}
             />
           </Box>
         </Box>
+
         {data ? (
           <ResponsiveLine
             data={formattedData}
@@ -132,7 +134,6 @@ const Daily = () => {
             }}
             axisLeft={{
               orient: "left",
-              tickValues: 5,
               tickSize: 5,
               tickPadding: 5,
               tickRotation: 0,

@@ -36,10 +36,11 @@ const Monthly = () => {
 
     const formattedData = [totalSalesLine, totalUnitsLine];
     return [formattedData];
-  }, [data]);
+  }, [data]); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
-    <Box m="1.5rem 2rem">
-      <Header title="MONTHLY SALES" subtitle="Chart of Monthly Sales" />
+    <Box m="1.5rem 2.5rem">
+      <Header title="MONTHLY SALES" subtitle="Chart of monthlysales" />
       <Box height="75vh">
         {data ? (
           <ResponsiveLine
@@ -88,6 +89,7 @@ const Monthly = () => {
               reverse: false,
             }}
             yFormat=" >-.2f"
+            // curve="catmullRom"
             axisTop={null}
             axisRight={null}
             axisBottom={{
@@ -101,7 +103,6 @@ const Monthly = () => {
             }}
             axisLeft={{
               orient: "left",
-              tickValues: 5,
               tickSize: 5,
               tickPadding: 5,
               tickRotation: 0,
