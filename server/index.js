@@ -51,7 +51,7 @@ mongoose
     app.listen(PORT, () => console.log(`Listening on PORT : ${PORT}`));
 
     // Only first time to inject data
-    //AffiliateStat.insertMany(dataAffiliateStat);
+    // AffiliateStat.insertMany(dataAffiliateStat);
     // OverallStat.insertMany(dataOverallStat);
     // Product.insertMany(dataProduct);
     // ProductStat.insertMany(dataProductStat);
