@@ -11,22 +11,27 @@ const Layout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const userId = useSelector((state) => state.global.userId);
   const { data } = useGetUserQuery(userId);
+
   return (
-    <Box display={isNonMobile ? "flex" : "block"} width="100%" height="100%">
-      <Sidebar
-        user={data || {}}
-        isNonMobile={isNonMobile}
-        drawerWidth="250px"
-        isSidebarOpen={isSidebarOpen}
-        setIsSidebarOpen={setIsSidebarOpen}
-      />  
-      <Box flexGrow={1}>
+    <Box display="flex" width="100%" height="100vh">
+      {isSidebarOpen && (
+        <Sidebar
+          user={data || {}}
+          isNonMobile={isNonMobile}
+          drawerWidth="250px"
+          isSidebarOpen={isSidebarOpen}
+          setIsSidebarOpen={setIsSidebarOpen}
+        />
+      )}
+      <Box flexGrow={1} display="flex" flexDirection="column" overflow="hidden">
         <Navbar
           user={data || {}}
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
         />
-        <Outlet />
+        <Box flexGrow={1} overflow="auto">
+          <Outlet />
+        </Box>
       </Box>
     </Box>
   );
