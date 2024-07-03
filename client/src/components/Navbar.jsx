@@ -23,14 +23,26 @@ import {
   MenuItem,
   InputBase,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom"; // Import useNavigate hook
+import { setUser } from "state/index.js";
+
 const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const [anchorEl, setAnchorEl] = useState(null);
   const isOpen = Boolean(anchorEl);
+
   const handleClick = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
+
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("currentuserId");
+    dispatch(setUser());
+    navigate("/login");
+  };
 
   return (
     <AppBar
@@ -122,7 +134,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
               onClose={handleClose}
               anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
             >
-              <MenuItem onClick={handleClose}>LOG OUT</MenuItem>
+              <MenuItem onClick={handleLogout}>LOG OUT</MenuItem>
             </Menu>
           </FlexBetween>
         </FlexBetween>

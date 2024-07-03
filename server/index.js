@@ -9,6 +9,7 @@ import clientRoutes from "./routes/client.js";
 import salesRoutes from "./routes/sales.js";
 import managementRoutes from "./routes/management.js";
 import generalRoutes from "./routes/general.js";
+import authRoutes from "./routes/auth.js";
 
 //for data models
 import User from "./models/User.js";
@@ -41,6 +42,7 @@ app.use("/client", clientRoutes);
 app.use("/sales", salesRoutes);
 app.use("/management", managementRoutes);
 app.use("/general", generalRoutes);
+app.use("/api/auth", authRoutes);
 
 const PORT = process.env.PORT || 9000;
 // console.log('MongoDB URI:', process.env.MONGO_URL);
