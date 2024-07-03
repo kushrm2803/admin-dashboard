@@ -29,8 +29,11 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5001/api/auth/login",
-        { email, password }
+        `${process.env.REACT_APP_AUTH_URL}/login`,
+        {
+          email,
+          password,
+        }
       );
 
       if (response.status === 200 || response.status === 204) {
