@@ -50,5 +50,5 @@ A comprehensive, responsive, and dynamic admin dashboard built with the MERN sta
 ## Contributers
 
 - Kush Mahajan ([@kushrm2803](https://github.com/kushrm2803))
-- Swapnil Pandey ([@janesmith](https://github.com/SwapnilPandey2210))
+- Swapnil Pandey ([@SwapnilPandey2210](https://github.com/SwapnilPandey2210))
 - Kanika Singh ([@kanika-singh-28](https://github.com/kanika-singh-28))
